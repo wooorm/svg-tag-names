@@ -1,0 +1,6 @@
+.DS_Store
+*.log
+coverage/
+node_modules/
+svg-tag-names.js
+svg-tag-names.min.js
