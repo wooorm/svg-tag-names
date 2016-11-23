@@ -14,21 +14,14 @@ tag-names.
 npm install svg-tag-names
 ```
 
-**svg-tag-names** is also available as an AMD, CommonJS, and globals
-module, [uncompressed and compressed][releases].
-
 ## Usage
-
-Dependencies:
 
 ```javascript
 var svgTagNames = require('svg-tag-names');
-```
 
-Slicing the first 20:
+svgTagNames.length; //=> 100
 
-```javascript
-var first = svgTagNames.slice(0, 20);
+console.log(svgTagNames.slice(0, 20));
 ```
 
 Yields:
@@ -56,18 +49,6 @@ Yields:
   'feBlend' ]
 ```
 
-And `length`:
-
-```javascript
-var length = svgTagNames.length;
-```
-
-Yields:
-
-```js
-100
-```
-
 ## API
 
 ### `svgTagNames`
@@ -89,8 +70,6 @@ Yields:
 [coverage-page]: https://codecov.io/github/wooorm/svg-tag-names?branch=master
 
 [npm]: https://docs.npmjs.com/cli/install
-
-[releases]: https://github.com/wooorm/svg-tag-names/releases
 
 [license]: LICENSE
 
