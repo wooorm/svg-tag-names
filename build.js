@@ -1,90 +1,37 @@
 'use strict';
 
 var fs = require('fs');
-var path = require('path');
-var https = require('https');
-var cheerio = require('cheerio');
+var jsdom = require('jsdom');
 var bail = require('bail');
-var list = require('..');
-
-var svg11 = 'https://www.w3.org/TR/SVG11/eltindex.html';
-var svgTiny12 = 'https://www.w3.org/TR/SVGTiny12/elementTable.html';
-var svg2 = 'https://www.w3.org/TR/SVG2/eltindex.html';
-var output = path.join(__dirname, '..', 'index.json');
+var list = require('./');
 
 var count = 0;
 
-load(svg11, function (err, doc) {
-  if (err) {
+[
+  'https://www.w3.org/TR/SVG11/eltindex.html',
+  'https://www.w3.org/TR/SVGTiny12/elementTable.html',
+  'https://www.w3.org/TR/SVG2/eltindex.html'
+].forEach(function (url, c, all) {
+  jsdom.env(url, function (err, win) {
     bail(err);
-  }
 
-  cheerio.load(doc)('.element-name').each(function () {
-    var data = this.children[0].data.slice(1, -1);
+    var nodes = win.document.querySelectorAll('.element-name');
+    var length = nodes.length;
+    var index = -1;
+    var data;
 
-    if (list.indexOf(data) === -1) {
-      list.push(data);
+    while (++index < length) {
+      data = nodes[index].textContent.slice(1, -1);
+
+      if (data && list.indexOf(data) === -1) {
+        list.push(data);
+      }
+    }
+
+    count++;
+
+    if (count === all.length) {
+      fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail);
     }
   });
-
-  done();
 });
-
-load(svgTiny12, function (err, doc) {
-  if (err) {
-    bail(err);
-  }
-
-  cheerio.load(doc)('.element-name').each(function () {
-    var data = this.children[0].data.slice(1, -1);
-
-    if (list.indexOf(data) === -1) {
-      list.push(data);
-    }
-  });
-
-  done();
-});
-
-load(svg2, function (err, doc) {
-  if (err) {
-    bail(err);
-  }
-
-  cheerio.load(doc)('.element-name span').each(function () {
-    var data = this.children[0].data;
-
-    if (list.indexOf(data) === -1) {
-      list.push(data);
-    }
-  });
-
-  done();
-});
-
-function load(url, next) {
-  https.get(url, function (res, err) {
-    var value = '';
-
-    if (err) {
-      return next(err);
-    }
-
-    res
-      .setEncoding('utf8')
-      .on('data', function (buf) {
-        value += buf;
-      })
-      .on('end', function () {
-        next(null, value);
-      });
-  });
-}
-
-function done() {
-  count++;
-
-  if (count === 3) {
-    fs.writeFile(output, JSON.stringify(list.sort(), 0, 2) + '\n', bail);
-  }
-}

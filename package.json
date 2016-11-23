@@ -25,8 +25,8 @@
   "devDependencies": {
     "bail": "^1.0.0",
     "browserify": "^13.0.0",
-    "cheerio": "^0.20.0",
     "esmangle": "^1.0.1",
+    "jsdom": "^9.8.3",
     "nyc": "^10.0.0",
     "remark-cli": "^2.0.0",
     "remark-preset-wooorm": "^1.0.0",
@@ -35,7 +35,7 @@
   },
   "scripts": {
     "build-md": "remark . -qfo",
-    "build-crawl": "node script/build",
+    "build-crawl": "node build",
     "build-bundle": "browserify index.json --bare -s svgTagNames > svg-tag-names.js",
     "build-mangle": "esmangle svg-tag-names.js > svg-tag-names.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
