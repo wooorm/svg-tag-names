@@ -11,20 +11,17 @@
     "tagname",
     "w3c"
   ],
-  "dependencies": {},
-  "files": [
-    "index.js",
-    "index.json"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/svg-tag-names.git"
-  },
+  "repository": "https://github.com/wooorm/svg-tag-names",
   "bugs": "https://github.com/wooorm/svg-tag-names/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
+  "main": "index.json",
+  "files": [
+    "index.json"
+  ],
+  "dependencies": {},
   "devDependencies": {
     "bail": "^1.0.0",
     "browserify": "^13.0.0",
@@ -39,7 +36,7 @@
   "scripts": {
     "build-md": "remark . -qfo",
     "build-crawl": "node script/build",
-    "build-bundle": "browserify index.js --bare -s svgTagNames > svg-tag-names.js",
+    "build-bundle": "browserify index.json --bare -s svgTagNames > svg-tag-names.js",
     "build-mangle": "esmangle svg-tag-names.js > svg-tag-names.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
