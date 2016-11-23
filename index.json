@@ -66,6 +66,7 @@
   "marker",
   "mask",
   "mesh",
+  "meshgradient",
   "meshpatch",
   "meshrow",
   "metadata",
