@@ -1,9 +1,16 @@
 'use strict';
 
 var fs = require('fs');
-var jsdom = require('jsdom');
+var https = require('https');
 var bail = require('bail');
+var concat = require('concat-stream');
+var unified = require('unified');
+var parse = require('rehype-parse');
+var selectAll = require('hast-util-select').selectAll;
+var toString = require('hast-util-to-string');
 var list = require('./');
+
+var proc = unified().use(parse);
 
 var count = 0;
 
@@ -12,26 +19,25 @@ var count = 0;
   'https://www.w3.org/TR/SVGTiny12/elementTable.html',
   'https://www.w3.org/TR/SVG2/eltindex.html'
 ].forEach(function (url, c, all) {
-  jsdom.env(url, function (err, win) {
-    bail(err);
+  https.get(url, function (res) {
+    res.pipe(concat(onconcat)).on('error', bail);
 
-    var nodes = win.document.querySelectorAll('.element-name');
-    var length = nodes.length;
-    var index = -1;
-    var data;
+    function onconcat(buf) {
+      selectAll('.element-name', proc.parse(buf)).forEach(each);
 
-    while (++index < length) {
-      data = nodes[index].textContent.slice(1, -1);
+      count++;
 
-      if (data && list.indexOf(data) === -1) {
-        list.push(data);
+      if (count === all.length) {
+        fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail);
       }
-    }
 
-    count++;
+      function each(node) {
+        var data = toString(node).slice(1, -1);
 
-    if (count === all.length) {
-      fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail);
+        if (data && list.indexOf(data) === -1) {
+          list.push(data);
+        }
+      }
     }
   });
 });
