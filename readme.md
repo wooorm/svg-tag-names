@@ -1,4 +1,4 @@
-# svg-tag-names [![Build Status][build-badge]][build-page] [![Coverage Status][coverage-badge]][coverage-page]
+# svg-tag-names [![Build Status][build-badge]][build-page]
 
 List of known SVG tag-names.  Includes the elements from
 [SVG 1.1][svg11], [SVG Tiny 1.2][svgtiny12], and [SVG 2][svg2].
@@ -64,10 +64,6 @@ Yields:
 [build-badge]: https://img.shields.io/travis/wooorm/svg-tag-names.svg
 
 [build-page]: https://travis-ci.org/wooorm/svg-tag-names
-
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/svg-tag-names.svg
-
-[coverage-page]: https://codecov.io/github/wooorm/svg-tag-names?branch=master
 
 [npm]: https://docs.npmjs.com/cli/install
 

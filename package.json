@@ -27,7 +27,6 @@
     "browserify": "^14.1.0",
     "esmangle": "^1.0.1",
     "jsdom": "^9.8.3",
-    "nyc": "^10.0.0",
     "remark-cli": "^3.0.0",
     "remark-preset-wooorm": "^2.0.0",
     "tape": "^4.4.0",
@@ -41,14 +40,7 @@
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
     "test-api": "node test",
-    "test-coverage": "nyc --reporter lcov tape test.js",
-    "test": "npm run build && npm run lint && npm run test-coverage"
-  },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 100,
-    "functions": 100,
-    "branches": 100
+    "test": "npm run build && npm run lint && npm run test-api"
   },
   "xo": {
     "space": true,
