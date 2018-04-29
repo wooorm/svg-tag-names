@@ -17,11 +17,11 @@ npm install svg-tag-names
 ## Usage
 
 ```javascript
-var svgTagNames = require('svg-tag-names');
+var svgTagNames = require('svg-tag-names')
 
-svgTagNames.length; //=> 101
+console.log(svgTagNames.length) // => 101
 
-console.log(svgTagNames.slice(0, 20));
+console.log(svgTagNames.slice(0, 20))
 ```
 
 Yields:
