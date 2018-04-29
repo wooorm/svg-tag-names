@@ -3,3 +3,4 @@
 node_modules/
 svg-tag-names.js
 svg-tag-names.min.js
+yarn.lock
