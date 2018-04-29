@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tape');
-var svgTagNames = require('./');
+var svgTagNames = require('.');
 
 test('svgTagNames', function (t) {
   t.ok(Array.isArray(svgTagNames), 'should be an `array`');

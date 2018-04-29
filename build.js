@@ -8,7 +8,7 @@ var unified = require('unified');
 var parse = require('rehype-parse');
 var selectAll = require('hast-util-select').selectAll;
 var toString = require('hast-util-to-string');
-var list = require('./');
+var list = require('.');
 
 var proc = unified().use(parse);
 
