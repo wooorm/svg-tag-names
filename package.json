@@ -39,7 +39,7 @@
   },
   "scripts": {
     "generate": "node build",
-    "format": "remark . -qfo && prettier --write '**/*.js' && xo --fix",
+    "format": "remark . -qfo && prettier --write \"**/*.js\" && xo --fix",
     "build-bundle": "browserify index.json --bare -s svgTagNames > svg-tag-names.js",
     "build-mangle": "esmangle svg-tag-names.js > svg-tag-names.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
