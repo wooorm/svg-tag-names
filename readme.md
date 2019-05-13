@@ -82,7 +82,7 @@ Yields:
 
 [license]: license
 
-[author]: http://wooorm.com
+[author]: https://wooorm.com
 
 [svg11]: https://www.w3.org/TR/SVG/eltindex.html
 
