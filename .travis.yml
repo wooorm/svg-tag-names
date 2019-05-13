@@ -1,14 +1,14 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: dsgDNVyrLabRSnbH5IrYynlqjh7UNchQ4t8KkBaFHM1lG4KnTVz/v77y4W8kjOYVBOUqxcUsZoNHaizqEKs0Qi/v84uGdxqj13LRcUaTF4aW21kzKjygjeYSV5Rpfeo9zZmAnkEAP1+QI1+Y3D9t1UfOPfGyRPJet/lxdBS+EUj811cEM1pUkHbffjOUXQoFIzl6UQRiCHqjkiUVxbH5LwvWlRFmkuW8aFS3gHad9q4PfqlCuoxDSnl3eZMNQGaTrlu13o3enR9OS2w1MzlTrCfhqizP1WAMlU4r8qwg9rMYoPpufBucZW3Z4GpSgt7kaXe0wLXKGfzlom8PsAlXmSrwmacPAZlzfoQjAG658btiQSxn0d/6Q3si5OyZ1arSeg+ci5n2K26jUG6gFE+Qn44KYUWjtJFtCbfZQm26hokN1umuL7EM+pEVUJWPP67gNPHvySKfeRpA6i5zluyWyiPxM1n8BKiNby9YxCjKYWJo8yfKcVeuMlkyygHLftQiENiieS3YPd1ABAFAAT9gx4kehqbn5CmpZUSvCDxpxao2CVCTRkaVyCU8TQy5QH4G6b+HUK8JjMXrSqiY3mow+FN70qog5YWr7+6TE782oX3mBqCwNtvRkuL1EDQMMLjcZbtqKBzRsomRSrL89HDBlzJ6c8dfkACVgxdJ70iaSOs=
+    secure: rQQ35xYGLanVItRf5G2LZJRjnrMGH5Gz1/md006MydIQoY/vDfjWsI+tDSEOh3yNvDe3EIk06zQwRRxYQXM/DkBwdZVSOG/MNJJ8wTRb+KC6eCgcGBYQunSAQpcVsO7APeqqL+Kc6kPo2nnUjXf3GTidVRfy+uxoxWqEOS6/E5/KOcq5ZWNrGdKtL97JrMwjnVGbpuaUJxIy4yZq9Elbv4QHyOOG8PprielsYBGylUrrSt9sqNkU6bxRfG/UQNc0lJHLqNuznEAQYu87E1ieKagctiFX1Za2gE2JrOdWIDE3PVqCDEZWltmlChEJbdMgis1sF8Y0XKHjKHbxX2Asx/QXQADaxo4pe/+zf2h8h/4xmR7F74ipXHP3C/CnAEBQJjG+knxgcg8BoCaNq+J4+zWSpcH8zOR2CaOKgQGgbFGDOVBBmcLs8ukOKxCWEE7fPT4G+r6IRSE/fX9yvC7ldqzS3d0Hf4I94AJ/+5bHgszHdMVLJtc3mnYUk262/3p5h3KL2WKITyGhwzGXUWIU0VtTwHUQel+zWBlFDN4pCzPnBjv87/kx4dUvZ6S5fLxiekVScjCgH0LIozRPGrgyJzscHTG7Q5egPgVFQxDW/HT+In16vgMWGrHuW6HImoNsVTdmvmSJwI02owQkTeMBfONEFz7SCZmnXG/9Rt0Py/Y=
   file:
-    - "svg-tag-names.js"
-    - "svg-tag-names.min.js"
+    - 'svg-tag-names.js'
+    - 'svg-tag-names.min.js'
   on:
     tags: true
