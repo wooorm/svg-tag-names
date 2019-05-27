@@ -4,26 +4,27 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
 
-List of known SVG tag-names.  Includes the elements from
-[SVG 1.1][svg11], [SVG Tiny 1.2][svgtiny12], and [SVG 2][svg2].
+List of known SVG tag-names.
+Includes the elements from [SVG 1.1][svg11], [SVG Tiny 1.2][svgtiny12], and
+[SVG 2][svg2].
 
 The repo contains a script to crawl specs to include newly introduced
 tag-names.
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install svg-tag-names
 ```
 
 ## Usage
 
-```javascript
+```js
 var svgTagNames = require('svg-tag-names')
 
-console.log(svgTagNames.length) // => 101
+console.log(svgTagNames.length) // => 94
 
 console.log(svgTagNames.slice(0, 20))
 ```
@@ -31,7 +32,8 @@ console.log(svgTagNames.slice(0, 20))
 Yields:
 
 ```js
-[ 'a',
+[
+  'a',
   'altGlyph',
   'altGlyphDef',
   'altGlyphItem',
@@ -50,14 +52,15 @@ Yields:
   'desc',
   'discard',
   'ellipse',
-  'feBlend' ]
+  'feBlend'
+]
 ```
 
 ## API
 
 ### `svgTagNames`
 
-`Array.<string>` — List of case-sensitive tag-names.
+`Array.<string>` — List of case-sensitive tag names.
 
 ## Related
 
