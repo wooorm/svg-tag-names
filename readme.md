@@ -96,7 +96,7 @@ Yields:
 
 [author]: https://wooorm.com
 
-[svg11]: https://www.w3.org/TR/SVG/eltindex.html
+[svg11]: https://www.w3.org/TR/SVG11/eltindex.html
 
 [svgtiny12]: https://www.w3.org/TR/SVGTiny12/elementTable.html
 
