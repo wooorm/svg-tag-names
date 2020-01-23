@@ -4,12 +4,11 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
 
-List of known SVG tag-names.
+List of known SVG tag names.
 Includes the elements from [SVG 1.1][svg11], [SVG Tiny 1.2][svgtiny12], and
 [SVG 2][svg2].
 
-The repo contains a script to crawl specs to include newly introduced
-tag-names.
+The repo contains a script to crawl specs to include newly introduced names.
 
 ## Install
 
@@ -19,7 +18,7 @@ tag-names.
 npm install svg-tag-names
 ```
 
-## Usage
+## Use
 
 ```js
 var svgTagNames = require('svg-tag-names')

@@ -1,7 +1,7 @@
 {
   "name": "svg-tag-names",
   "version": "2.0.0",
-  "description": "List of known SVG tag-names",
+  "description": "List of known SVG tag names",
   "license": "MIT",
   "keywords": [
     "svg",
