@@ -42,7 +42,7 @@ function onconcat(buf) {
   function add(node) {
     var data = toString(node).slice(1, -1)
 
-    if (data && list.indexOf(data) === -1) {
+    if (data && !list.includes(data)) {
       list.push(data)
     }
   }
