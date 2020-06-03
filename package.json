@@ -22,8 +22,10 @@
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
   "main": "index.json",
+  "types": "index.d.ts",
   "files": [
-    "index.json"
+    "index.json",
+    "index.d.ts",
   ],
   "dependencies": {},
   "devDependencies": {
