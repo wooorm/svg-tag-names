@@ -26,8 +26,8 @@ function each(url) {
   https.get(url, onconnection)
 }
 
-function onconnection(res) {
-  res.pipe(concat(onconcat)).on('error', bail)
+function onconnection(response) {
+  response.pipe(concat(onconcat)).on('error', bail)
 }
 
 function onconcat(buf) {
