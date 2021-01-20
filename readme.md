@@ -80,9 +80,9 @@ Yields:
 
 <!-- Definition -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/svg-tag-names.svg
+[build-badge]: https://github.com/wooorm/svg-tag-names/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/wooorm/svg-tag-names
+[build]: https://github.com/wooorm/svg-tag-names/actions
 
 [downloads-badge]: https://img.shields.io/npm/dm/svg-tag-names.svg
 
