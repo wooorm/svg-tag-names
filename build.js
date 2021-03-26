@@ -4,7 +4,9 @@ import {bail} from 'bail'
 import concat from 'concat-stream'
 import unified from 'unified'
 import parse from 'rehype-parse'
+// @ts-ignore
 import select from 'hast-util-select'
+// @ts-ignore
 import toString from 'hast-util-to-string'
 import {svgTagNames} from './index.js'
 
@@ -22,13 +24,20 @@ while (++index < urls.length) {
   https.get(urls[index], onconnection)
 }
 
+/**
+ * @param {import('http').IncomingMessage} response
+ */
 function onconnection(response) {
   response.pipe(concat(onconcat)).on('error', bail)
 }
 
+/**
+ * @param {Buffer} buf
+ */
 function onconcat(buf) {
   var nodes = select.selectAll('.element-name', proc.parse(buf))
   var index = -1
+  /** @type {string} */
   var value
 
   while (++index < nodes.length) {
