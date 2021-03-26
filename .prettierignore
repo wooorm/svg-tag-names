@@ -1,6 +1,2 @@
-.nyc_output/
 coverage/
 *.md
-*.json
-svg-tag-names.js
-svg-tag-names.min.js

@@ -1,6 +1,7 @@
 # svg-tag-names
 
 [![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
 [![Size][size-badge]][size]
 
@@ -12,6 +13,9 @@ The repo contains a script to crawl specs to include newly introduced names.
 
 ## Install
 
+This package is ESM only: Node 12+ is needed to use it and it must be `import`ed
+instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -21,7 +25,7 @@ npm install svg-tag-names
 ## Use
 
 ```js
-var svgTagNames = require('svg-tag-names')
+import {svgTagNames} from 'svg-tag-names'
 
 console.log(svgTagNames.length) // => 94
 
@@ -57,9 +61,12 @@ Yields:
 
 ## API
 
+This package exports the following identifiers: `svgTagNames`.
+There is no default export.
+
 ### `svgTagNames`
 
-`Array.<string>` — List of case-sensitive tag names.
+`string[]` — List of case-sensitive tag names.
 
 ## Related
 
@@ -83,6 +90,10 @@ Yields:
 [build-badge]: https://github.com/wooorm/svg-tag-names/workflows/main/badge.svg
 
 [build]: https://github.com/wooorm/svg-tag-names/actions
+
+[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/svg-tag-names.svg
+
+[coverage]: https://codecov.io/github/wooorm/svg-tag-names
 
 [downloads-badge]: https://img.shields.io/npm/dm/svg-tag-names.svg
 

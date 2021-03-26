@@ -1,7 +1,5 @@
-'use strict'
-
-var test = require('tape')
-var svgTagNames = require('.')
+import test from 'tape'
+import {svgTagNames} from './index.js'
 
 test('svgTagNames', function (t) {
   var index = -1
