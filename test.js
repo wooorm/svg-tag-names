@@ -4,11 +4,17 @@ var test = require('tape')
 var svgTagNames = require('.')
 
 test('svgTagNames', function (t) {
+  var index = -1
+
   t.ok(Array.isArray(svgTagNames), 'should be an `array`')
 
-  svgTagNames.forEach(function (tagName) {
-    t.equal(typeof tagName, 'string', '`' + tagName + '` should be a string')
-  })
+  while (++index < svgTagNames.length) {
+    t.equal(
+      typeof svgTagNames[index],
+      'string',
+      '`' + svgTagNames[index] + '` should be a string'
+    )
+  }
 
   t.end()
 })

@@ -17,13 +17,11 @@ var urls = [
 ]
 
 var proc = unified().use(parse)
-
 var count = 0
+var index = -1
 
-urls.forEach(each)
-
-function each(url) {
-  https.get(url, onconnection)
+while (++index < urls.length) {
+  https.get(urls[index], onconnection)
 }
 
 function onconnection(response) {
@@ -31,19 +29,21 @@ function onconnection(response) {
 }
 
 function onconcat(buf) {
-  selectAll('.element-name', proc.parse(buf)).forEach(add)
+  var nodes = selectAll('.element-name', proc.parse(buf))
+  var index = -1
+  var value
+
+  while (++index < nodes.length) {
+    value = toString(nodes[index]).slice(1, -1)
+
+    if (value && !list.includes(value)) {
+      list.push(value)
+    }
+  }
 
   count++
 
   if (count === urls.length) {
     fs.writeFile('index.json', JSON.stringify(list.sort(), 0, 2) + '\n', bail)
-  }
-
-  function add(node) {
-    var data = toString(node).slice(1, -1)
-
-    if (data && !list.includes(data)) {
-      list.push(data)
-    }
   }
 }
