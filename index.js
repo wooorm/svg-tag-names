@@ -1,3 +1,8 @@
+/**
+ * List of known SVG tag names.
+ *
+ * @type {Array<string>}
+ */
 export const svgTagNames = [
   'a',
   'altGlyph',

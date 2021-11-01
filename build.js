@@ -49,9 +49,16 @@ function onconcat(buf) {
   if (count === urls.length) {
     fs.writeFile(
       'index.js',
-      'export const svgTagNames = ' +
-        JSON.stringify(svgTagNames.sort(), null, 2) +
-        '\n',
+      [
+        '/**',
+        ' * List of known SVG tag names.',
+        ' *',
+        ' * @type {Array<string>}',
+        ' */',
+        'export const svgTagNames = ' +
+          JSON.stringify(svgTagNames.sort(), null, 2),
+        ''
+      ].join('\n'),
       bail
     )
   }
