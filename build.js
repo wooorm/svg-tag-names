@@ -35,11 +35,9 @@ function onconnection(response) {
 function onconcat(buf) {
   const nodes = selectAll('.element-name', proc.parse(buf))
   let index = -1
-  /** @type {string} */
-  let value
 
   while (++index < nodes.length) {
-    value = toString(nodes[index]).slice(1, -1)
+    const value = toString(nodes[index]).slice(1, -1)
 
     if (value && !svgTagNames.includes(value)) {
       svgTagNames.push(value)
