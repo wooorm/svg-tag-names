@@ -1,4 +1,4 @@
-export var svgTagNames = [
+export const svgTagNames = [
   'a',
   'altGlyph',
   'altGlyphDef',

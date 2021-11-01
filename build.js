@@ -1,24 +1,22 @@
-import fs from 'fs'
-import https from 'https'
+import fs from 'node:fs'
+import https from 'node:https'
 import {bail} from 'bail'
-import concat from 'concat-stream'
-import unified from 'unified'
-import parse from 'rehype-parse'
-// @ts-ignore
-import select from 'hast-util-select'
-// @ts-ignore
-import toString from 'hast-util-to-string'
+import concatStream from 'concat-stream'
+import {unified} from 'unified'
+import rehypeParse from 'rehype-parse'
+import {selectAll} from 'hast-util-select'
+import {toString} from 'hast-util-to-string'
 import {svgTagNames} from './index.js'
 
-var urls = [
+const urls = [
   'https://www.w3.org/TR/SVG11/eltindex.html',
   'https://www.w3.org/TR/SVGTiny12/elementTable.html',
   'https://www.w3.org/TR/SVG2/eltindex.html'
 ]
 
-var proc = unified().use(parse)
-var count = 0
-var index = -1
+const proc = unified().use(rehypeParse)
+let count = 0
+let index = -1
 
 while (++index < urls.length) {
   https.get(urls[index], onconnection)
@@ -28,17 +26,17 @@ while (++index < urls.length) {
  * @param {import('http').IncomingMessage} response
  */
 function onconnection(response) {
-  response.pipe(concat(onconcat)).on('error', bail)
+  response.pipe(concatStream(onconcat)).on('error', bail)
 }
 
 /**
  * @param {Buffer} buf
  */
 function onconcat(buf) {
-  var nodes = select.selectAll('.element-name', proc.parse(buf))
-  var index = -1
+  const nodes = selectAll('.element-name', proc.parse(buf))
+  let index = -1
   /** @type {string} */
-  var value
+  let value
 
   while (++index < nodes.length) {
     value = toString(nodes[index]).slice(1, -1)
@@ -53,7 +51,7 @@ function onconcat(buf) {
   if (count === urls.length) {
     fs.writeFile(
       'index.js',
-      'export var svgTagNames = ' +
+      'export const svgTagNames = ' +
         JSON.stringify(svgTagNames.sort(), null, 2) +
         '\n',
       bail

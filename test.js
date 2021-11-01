@@ -2,7 +2,7 @@ import test from 'tape'
 import {svgTagNames} from './index.js'
 
 test('svgTagNames', function (t) {
-  var index = -1
+  let index = -1
 
   t.ok(Array.isArray(svgTagNames), 'should be an `array`')
 
