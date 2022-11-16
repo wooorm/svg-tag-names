@@ -1,21 +1,17 @@
-import assert from 'node:assert'
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {svgTagNames} from './index.js'
 
-test('svgTagNames', function (t) {
+test('svgTagNames', function () {
   let index = -1
 
-  t.ok(Array.isArray(svgTagNames), 'should be an array')
+  assert.ok(Array.isArray(svgTagNames), 'should be an array')
 
-  t.doesNotThrow(() => {
-    while (++index < svgTagNames.length) {
-      assert.equal(
-        typeof svgTagNames[index],
-        'string',
-        '`' + svgTagNames[index] + '`'
-      )
-    }
-  }, 'should be an array of strings')
-
-  t.end()
+  while (++index < svgTagNames.length) {
+    assert.equal(
+      typeof svgTagNames[index],
+      'string',
+      '`' + svgTagNames[index] + '`'
+    )
+  }
 })
